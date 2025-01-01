@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<span class="title"><h1>{% block title %} Mandai Animals {% endblock %}</h1></span>
+  <hr>
+  <div class="content">
+    {% for classroom in classrooms %}
+    <div class="bg-dark text-white">
+      <p><h3>Animal ID {{ classroom.id }} details</h3></p>
+      <ul class="list-group w-25 mx-auto my-3">
+        <li class="list-group-item">Name: {{ classroom.name }}</li>
+        <li class="list-group-item">Medical Conditions: {{ classroom.yearlevel }}</li>
+        <li class="list-group-item">Zookeepers Needed: {{ classroom.capacity }}</li>
+      </ul>
+
+      <table class="table table-bordered text-white d-flex justify-content-center">
+        <tr class="table-info">
+          <th>Zookeeper #</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Feeding</th>
+          <th>Joined</th>
+          <th>Shift</th>
+        </tr>
+        {% for student in classroom.students %}
+          <tr class="table-info">
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstname }} {{ student.lastname }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.created_at }}</td>
+            <td>{{ student.bio }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-primary mx-3" 
+         href="{{ url_for('studentcreate', classroom_id=classroom.id) }}">Add Zookeeper</a>
+      </div>
+      <hr>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

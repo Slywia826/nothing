@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">{% block title %} Add New Animal {% endblock %}</h1>
+<hr>
+  <div class="d-flex justify-content-center text-black">
+    <form method="post">
+      <div class="form-floating mb-3">
+        <input type="text" name="name" class="form-control" id="floatingInput" 
+         placeholder="Name">
+        <label for="floatingInput">Animal Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" name="yearlevel" class="form-control" id="floatingInput" 
+         placeholder="Level">
+        <label for="floatingInput">Medical Conditions</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" name="capacity" class="form-control" id="floatingInput" 
+         placeholder="Capacity">
+        <label for="floatingInput">Zoo Keepers Needed</label>
+      </div>
+      <p><button class="btn btn-primary" type="submit">Submit</button></p>
+    </form>
+  </div>
+{% endblock %}
